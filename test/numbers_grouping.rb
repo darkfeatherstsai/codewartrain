@@ -8,7 +8,15 @@
      最後再加上原陣列內有幾個數
 =end
 def numbers_grouping(a)
-  p a.map{|index| index / (10**4) }
-    return a.size + a.map{|index| (index - 1) / 10**4 }.uniq.size
+  #=======================小實驗
+  groups = a.sort!.map{|index| (index - 1) / 10**4 }.uniq
+  groups.each do |index|
+    puts "#{index*10**4}" + "~" + "#{(index + 1)*10**4}"
+    b = a.select{|i| (i-1)/10**4 == index}
+    b.each{|i| p i}
+  end
+  #========================小實驗
+  return a.size + a.map{|index| (index - 1) / 10**4 }.uniq.size
+  #上面這行為題目要的
 end
 numbers_grouping([10000, 20000, 30000, 40000, 50000, 60000, 10000, 120000, 150000, 200000, 300000, 1000000])
