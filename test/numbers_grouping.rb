@@ -12,8 +12,9 @@ def numbers_grouping(a)
   groups = a.sort!.map{|index| (index - 1) / 10**4 }.uniq
   groups.each do |index|
     puts "#{index*10**4}" + "~" + "#{(index + 1)*10**4}"
-    b = a.select{|i| (i-1)/10**4 == index}
-    b.each{|i| p i}
+    a.each do |i|
+      puts i if (i-1)/10**4 == index
+    end
   end
   #========================小實驗
   return a.size + a.map{|index| (index - 1) / 10**4 }.uniq.size
