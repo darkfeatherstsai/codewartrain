@@ -5,6 +5,19 @@
      然後把原陣列transpose後取代
 修正:"="不能作用於self要另外找辦法替代
      把新陣列加入原陣列中再用drop捨棄也不行
+     用delete_at可以
+=============================
+class Array
+  def transpose!
+    a = self.transpose
+    self.size.times do
+    delete_at(0)
+  end
+    self << a
+    flatten!(1)
+   end
+ end
+ ============================
 =end
 
 class Array
