@@ -5,7 +5,8 @@
 想法:把陣列每個元素...
 修正:1.hash跟陣列是不同東西
      2.還要照分數高低來排
-     3.key可以拿value，但value不能拿key
+     3.key可以拿value，但value不能拿key(錯了)
+     4.value拿key profile.key(value)
 =end
 def my_languages(results)
   language_scores = results.to_a.sort_by {|i| -i[1]}
