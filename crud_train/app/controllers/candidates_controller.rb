@@ -17,8 +17,6 @@ class CandidatesController < ApplicationController
     end
   end
 
-
-
   def deit
     @candidate = Candidate.find_by(id: params[:id])
   end
