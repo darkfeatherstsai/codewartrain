@@ -17,10 +17,6 @@ class CandidatesController < ApplicationController
     end
   end
 
-  def deit
-    @candidate = Candidate.find_by(id: params[:id])
-  end
-
   def edit
     @candidate = Candidate.find_by(id: params[:id])
   end
@@ -29,18 +25,25 @@ class CandidatesController < ApplicationController
     @candidate = Candidate.find_by(id: params[:id])
     if @candidate.update(candidate_params)
         # 成功
-        redirect_to candidates_path, notice: "資料更新成功!"
-      else
+      redirect_to candidates_path, notice: "資料更新成功!"
+    else
         # 失敗
-        render :edit
-      end
+      render :edit
     end
+  end
 
-    def destroy
-      @candidate = Candidate.find_by(id: params[:id])
-      @candidate.destroy if @candidate
-      redirect_to candidates_path, notice: "候選人資料已刪除!"
-    end
+  def destroy
+    @candidate = Candidate.find_by(id: params[:id])
+    @candidate.destroy if @candidate
+    redirect_to candidates_path, notice: "候選人資料已刪除!"
+  end
+
+  def vote
+    @candidate = Candidate.find_by(id: params[:id])
+    @candidate.increment(:votes)
+    @candidate.save
+    redirect_to candidates_path, notice: "完成投票"
+  end
     
   private
   def candidate_params
