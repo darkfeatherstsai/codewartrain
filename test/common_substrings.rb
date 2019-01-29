@@ -6,11 +6,9 @@
 def substring_test(str1, str2)
   ans = 0
   (str1.size - 1).times do |i|
-    ans += 1 if str2.downcase.include?(str1[i..i+1].downcase) == true
-  end
-  if ans > 0
-    return true
-  else
+    if str2.downcase.include?(str1[i..i+1].downcase) == true
+      return true
+    end
     return false
   end
 end
