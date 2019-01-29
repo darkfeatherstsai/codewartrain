@@ -8,11 +8,11 @@ def is_smooth(n)
   smooth_factor = [2, 3, 5 ,7]
   max_factor = 0
   smooth_factor.each do |element|
-    max_factor = element if (n % element) == 0
     #p max_factor
     #p n
     while (n % element) == 0
       #p element
+      max_factor = element
       n /= element
       #p "#{n}!"
     end
