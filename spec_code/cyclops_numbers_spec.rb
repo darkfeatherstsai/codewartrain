@@ -1,7 +1,7 @@
 require_relative "../train_code/cyclops_numbers.rb"
 
 
-  describe "檢驗 n_choose_k" do
+  describe "檢驗 cyclops_numbers" do
     it "輸入 5 輸出 true" do
       ans = cyclops(5)
       expect(ans).to eq true
